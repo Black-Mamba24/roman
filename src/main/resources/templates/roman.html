@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<title></title>
+<link rel='stylesheet' type='text/css'
+	th:href='@{jquery-easyui-1.5.2/themes/default/easyui.css}' />
+<link rel='stylesheet' type='text/css'
+	th:href='@{jquery-easyui-1.5.2/themes/icon.css}' />
+<link rel='stylesheet' type='text/css' th:href='@{css/roman.css}' />
+</head>
+<body>
+	<div style="float: left; width: 30%; height: 100%;">
+		<fieldset style="width: 100%; height: 97%;">
+			<legend class="legend">
+				<span class="legend_hd"><b>Tree</b></span>
+			</legend>
+			<button id="refresh" type="button" style="width: 50px; height: 20px" onclick="refresh()" title="先选中节点，再点击刷新">刷新</button>
+			<div style='overflow: auto; float: left; width: 100%; height: 90%;'>
+				<ul id='zkTree' class='easyui-tree'>
+				</ul>
+			</div>
+		</fieldset>
+	</div>
+
+	<div style="float: right; width: 67%; height: 100%">
+
+		<div style="width: 65%; height: 35%; position: absolute;">
+			<fieldset style="width: 100%; height: 100%;">
+				<legend class="legend">
+					<span class="legend_hd"><b>Command</b></span>
+				</legend>
+				<div style="width: 100%; height: 90%; overflow: auto;">
+					<button id="create_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">create</button>
+					<button id="set_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">set</button>
+					<button id="get_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">get</button>
+					<button id="ls_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">ls</button>
+					<button id="delete_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">delete</button>
+					<button id="deleteall_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">deleteall</button>
+					<button id="rmr_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">rmr</button>
+					<button id="sync_but" type="button" style="width: 120px; height: 30px" onclick="command(this.id)">sync</button>
+					<br/>
+					<br/>
+					<button id="s_opt" type="button" style="width: 120px; height: 30px" onclick="option(this.id)">-s</button>
+					<button id="w_opt" type="button" style="width: 120px; height: 30px" onclick="option(this.id)">-w</button>
+					<button id="e_opt" type="button" style="width: 120px; height: 30px" onclick="option(this.id)">-e</button>
+					<button id="v_opt" type="button" style="width: 120px; height: 30px" onclick="option(this.id)">-v</button>
+					<input id="version" style="width: 60px; height: 20px" onchange="versionChange()" placeholder="version"></input>
+					<br/>
+					<br/>
+					<textarea id="whole_command" style="width: 100%; height: 30%; overflow: auto;"></textarea>
+					<br/>
+					<br/>
+					<button id="clear" type="button" style="width: 120px; height: 30px" onclick="clear_()">清空</button>
+					<button id="submit" type="button" style="width: 120px; height: 30px" onclick="submit_()">提交</button>
+				</div>
+			</fieldset>
+		</div>
+
+		<div style="width: 65%; height: 60%; bottom: 3%; position: absolute;">
+			<fieldset style="width: 100%; height: 100%;">
+				<legend class="legend">
+					<span class="legend_hd"><b>Data</b></span>
+				</legend>
+				<div style="width: 100%; height: 90%; overflow: auto;">
+					<textarea id="resultStr" style="width: 100%; height: 100%; border:0px"></textarea>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</body>
+<script type='text/javascript'
+	th:src='@{jquery-easyui-1.5.2/jquery.min.js}'></script>
+<script type='text/javascript'
+	th:src='@{jquery-easyui-1.5.2/jquery.easyui.min.js}'></script>
+<script type='text/javascript' th:src='@{script/constants.js}'></script>
+<script type='text/javascript' th:src='@{script/roman.js}'></script>
+</html>
